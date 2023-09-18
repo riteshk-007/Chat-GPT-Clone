@@ -5,7 +5,7 @@ import { FiUser, FiMessageSquare } from "react-icons/fi";
 import { SlOptions } from "react-icons/sl";
 import { ContextApp } from "../utils/Context";
 function LeftNav() {
-  const { setShowSlide, showSlide } = useContext(ContextApp);
+  const { setShowSlide, showSlide, handleQuery } = useContext(ContextApp);
   return (
     // top section
     <div
@@ -16,7 +16,10 @@ function LeftNav() {
       }
     >
       <div className="flex items-start justify-between w-full">
-        <span className="border border-gray-600  rounded w-[80%] py-2 text-xs flex gap-1 items-center justify-center cursor-pointer ">
+        <span
+          className="border border-gray-600  rounded w-[80%] py-2 text-xs flex gap-1 items-center justify-center cursor-pointer"
+          onClick={() => window.location.reload()}
+        >
           <AiOutlinePlus fontSize={18} />
           New Chat
         </span>
@@ -31,16 +34,24 @@ function LeftNav() {
       {/* middle section  */}
       <div className="h-[80%] w-full p-2 flex items-start justify-start flex-col overflow-hidden overflow-y-auto text-sm scroll my-2">
         {/* msg  */}
-        <span className="rounded w-full py-3 px-2 text-xs my-2 flex gap-1 items-center justify-between cursor-pointer hover:bg-gray-800 transition-all duration-300 overflow-hidden truncate whitespace-nowrap">
+        <span
+          className="rounded w-full py-3 px-2 text-xs my-2 flex gap-1 items-center justify-between cursor-pointer hover:bg-gray-800 transition-all duration-300 overflow-hidden truncate whitespace-nowrap"
+          value={"What is Programming?"}
+          onClick={handleQuery}
+        >
           <span className="flex gap-2 items-center justify-center text-base">
             <FiMessageSquare />
             <span className="text-sm">What is Programming?</span>
           </span>
         </span>
-        <span className="rounded w-full py-3 px-2 text-xs my-2 flex gap-2 items-center justify-between cursor-pointer hover:bg-gray-800 transition-all duration-300 overflow-hidden truncate whitespace-nowrap ">
+        <span
+          className="rounded w-full py-3 px-2 text-xs my-2 flex gap-2 items-center justify-between cursor-pointer hover:bg-gray-800 transition-all duration-300 overflow-hidden truncate whitespace-nowrap "
+          value={"How to use an API?"}
+          onClick={handleQuery}
+        >
           <span className="flex gap-2 items-center justify-center text-base">
             <FiMessageSquare />
-            <span className="text-sm">What is Programming?</span>
+            <span className="text-sm">How to use an API?</span>
           </span>
         </span>
       </div>

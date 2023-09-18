@@ -12,7 +12,10 @@ function ChatContainer() {
     Mobile,
     chatValue,
     setChatValue,
+    handleSend,
+    handleKeyPress,
   } = useContext(ContextApp);
+
   return (
     <div
       className={
@@ -46,6 +49,7 @@ function ChatContainer() {
             className="h-full  text-white bg-transparent px-3 py-4 w-full border-none outline-none text-base"
             value={chatValue}
             onChange={(e) => setChatValue(e.target.value)}
+            onKeyUp={handleKeyPress}
           />
           <RiSendPlane2Fill
             title="send message"
@@ -54,6 +58,7 @@ function ChatContainer() {
                 ? "text-gray-400 cursor-auto mx-3 text-xl"
                 : "text-white cursor-pointer mx-3 text-3xl bg-green-500 p-1 rounded shadow-md "
             }
+            onClick={handleSend}
           />
         </span>
         <p className="lg:text-xs text-gray-400 text-center text-[10px]">
